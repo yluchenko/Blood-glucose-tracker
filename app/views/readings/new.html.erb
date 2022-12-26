@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="pb-4"><%= link_to 'Reading', readings_path %></h2>
+        <%= form_for @reading, url: readings_path, method: :post do |f| %>
+            <%= f.label :glucose_level, class: "form-label" %>
+            <%= f.number_field :level, autofocus: true, class: 'form-control' %>
+            <div class="my-3">
+                <%= f.submit 'Create Reading', class: 'btn btn-primary' %>
+            </div>
+        <% end %>
+    </div>
+</div>

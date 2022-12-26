@@ -1,0 +1,24 @@
+<%= turbo_frame_tag "readings" do %>
+<h3><%= reading_header(params["q"]) %></h3>
+
+    <% if readings.present? %>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Maximum</th>
+                    <th scope="col">Minimum</th>
+                    <th scope="col">Average</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= readings.maximum(:level)%>mg/dl</td>
+                    <td><%= readings.minimum(:level)%>mg/dl</td>
+                    <td><%= readings.average(:level)%>mg/dl</td>
+                </tr>
+            </tbody>
+        </table> 
+     <% else %>
+         No records were found
+     <% end %>   
+<% end %>

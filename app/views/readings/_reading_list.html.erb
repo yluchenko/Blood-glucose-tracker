@@ -1,0 +1,23 @@
+<%= turbo_frame_tag "readings" do %>
+    <h3>Daily Readings</h3>
+    <% if readings.present? %>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% readings.each_with_index do  |reading, index| %>
+                    <tr>
+                        <td><%= index +1 %></td>
+                        <td><%= reading.level%>mg/dl</td>
+                    </tr>
+                 <% end %>   
+            </tbody>
+        </table> 
+     <% else %>
+         No records were found
+     <% end %>   
+<% end %>

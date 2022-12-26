@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BloodGlucoseTracker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+    <div class="container">
+      <% flash.each do |type, msg| %>
+        <div class="text-white text-center mt-2 <%= flash_msg_class(type)%>">
+          <%= msg %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
